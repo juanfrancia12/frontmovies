@@ -1,15 +1,14 @@
-import Slider from "@organisms/slider";
-import React from "react";
-import { Link } from "react-router-dom";
-import { SwiperSlide } from "swiper/react";
+import Slider from "@organisms/slider"
+import React from "react"
+import { Link } from "react-router-dom"
 
-type Props = {
-  title: string;
-  href: string;
-  children: React.ReactNode;
-};
+interface Props {
+  title: string
+  href: string
+  children: React.ReactNode
+}
 
-const Carousel = ({ title, href, children }: Props) => {
+const Carousel = ({ title, href, children }: Props): JSX.Element => {
   return (
     <div className="container mx-auto 2xl:px-40 px-2 py-4">
       <div className="flex justify-between items-center mb-8">
@@ -22,10 +21,10 @@ const Carousel = ({ title, href, children }: Props) => {
       </div>
       <Slider>{children}</Slider>
     </div>
-  );
-};
+  )
+}
 
-export default Carousel;
+export default Carousel
 
 /*
 bg-gray-700/80 text-white py-3 px-5 rounded-md border border-white/80 hover:bg-gray-700 active:bg-gray-600

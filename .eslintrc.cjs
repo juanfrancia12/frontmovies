@@ -2,7 +2,7 @@ const RULES = {
   OFF: "off",
   WARN: "warn",
   ERROR: "error",
-};
+}
 
 module.exports = {
   env: {
@@ -18,15 +18,19 @@ module.exports = {
     },
     ecmaVersion: "latest",
     sourceType: "module",
+    tsconfigRootDir: __dirname,
+    project: ["./tsconfig.json"],
   },
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "react/prop-types": RULES.OFF,
     "react/react-in-jsx-scope": RULES.OFF,
+    "react/no-unescaped-entities": ["error", { forbid: [">", "}"] }],
+    "no-console": RULES.WARN,
   },
   settings: {
     react: {
       version: "detect",
     },
   },
-};
+}

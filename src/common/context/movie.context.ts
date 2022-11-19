@@ -1,5 +1,6 @@
-type Props = {};
+import { useState } from "react"
 
-export const movieContext = () => {
-  return {};
-};
+export const movieContext = (): unknown => {
+  const [data, setData] = useState([])
+  return { data, setData }
+}

@@ -1,4 +1,4 @@
-const Banner = () => {
+const Banner = (): JSX.Element => {
   return (
     <div className="pt-20 lg:min-h-screen header--banner bg-no-repeat bg-cover bg-center bg-fixed text-white flex items-end">
       <div className="container mx-auto 2xl:px-40 px-2 py-4">
@@ -21,7 +21,7 @@ const Banner = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Banner;
+export default Banner

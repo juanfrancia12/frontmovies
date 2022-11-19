@@ -1,9 +1,7 @@
-import Details from "./Details";
+import Details from "./Details"
 
-type Props = {};
+const CharacterIdView = (): JSX.Element => {
+  return <Details />
+}
 
-const CharacterIdView = (props: Props) => {
-  return <Details />;
-};
-
-export default CharacterIdView;
+export default CharacterIdView

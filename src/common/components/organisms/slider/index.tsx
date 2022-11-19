@@ -1,7 +1,6 @@
-import { Movie } from "@interfaces/movie-example.interface";
-import { useRef } from "react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useRef } from "react"
+import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper"
+import { Swiper } from "swiper/react"
 
 const responsive = {
   300: {
@@ -20,14 +19,14 @@ const responsive = {
     slidesPerView: 5,
     spaceBetween: 31,
   },
-};
+}
 
-type Props = {
-  children: React.ReactNode;
-};
+interface Props {
+  children: React.ReactNode
+}
 
-const Slider = ({ children }: Props) => {
-  const swiperRef = useRef<SwiperCore>();
+const Slider = ({ children }: Props): JSX.Element => {
+  const swiperRef = useRef<SwiperCore>()
 
   return (
     <>
@@ -46,13 +45,13 @@ const Slider = ({ children }: Props) => {
         breakpoints={responsive}
         modules={[Autoplay, Pagination, Navigation]}
         onBeforeInit={(swiper) => {
-          swiperRef.current = swiper;
+          swiperRef.current = swiper
         }}
       >
         {children}
       </Swiper>
     </>
-  );
-};
+  )
+}
 
-export default Slider;
+export default Slider

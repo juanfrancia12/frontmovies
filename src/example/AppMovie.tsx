@@ -1,21 +1,21 @@
-import Header from "@components/templates/layout/components/Header";
-import Banner from "@organisms/banner";
-import { useLocation } from "react-router-dom";
+import Header from "@components/templates/layout/components/Header"
+// import Banner from "@organisms/banner"
+// import { useLocation } from "react-router-dom"
 
-type Props = {
-  children?: JSX.Element | JSX.Element[];
-};
+interface Props {
+  children?: JSX.Element | JSX.Element[]
+}
 
-const LOCATIONS = ["/"];
+// const LOCATIONS = ["/"]
 
-const AppMovieLayout = ({ children }: Props) => {
-  const location = useLocation();
+const AppMovieLayout = ({ children }: Props): JSX.Element => {
+  // const location = useLocation()
 
-  const LOCATION_HAST = location.hash;
-  const LOCATION_PATHNAME = location.pathname;
-  const LOCATION_SEARCH = location.search;
+  // const LOCATION_HAST = location.hash
+  // const LOCATION_PATHNAME = location.pathname
+  // const LOCATION_SEARCH = location.search
 
-  const isViewBanner = LOCATIONS.includes(location.pathname);
+  // const isViewBanner = LOCATIONS.includes(location.pathname)
 
   return (
     <div className="w-full min-h-screen relative flex flex-col">
@@ -30,7 +30,7 @@ const AppMovieLayout = ({ children }: Props) => {
         {children}
       </main> */}
     </div>
-  );
-};
+  )
+}
 
-export default AppMovieLayout;
+export default AppMovieLayout

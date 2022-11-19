@@ -1,7 +1,7 @@
-import CharacterIdView from "@modules/character-id";
+import CharacterIdView from "@modules/character-id"
 
-const CharacterIdPage = () => {
-  return <CharacterIdView />;
-};
+const CharacterIdPage = (): JSX.Element => {
+  return <CharacterIdView />
+}
 
-export default CharacterIdPage;
+export default CharacterIdPage

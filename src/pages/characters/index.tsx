@@ -1,11 +1,11 @@
-import CharactersView from "@modules/characters";
+import CharactersView from "@modules/characters"
 
-const CharactersPage = () => {
+const CharactersPage = (): JSX.Element => {
   return (
     <div className="pt-20">
       <CharactersView />
     </div>
-  );
-};
+  )
+}
 
-export default CharactersPage;
+export default CharactersPage

@@ -1,11 +1,9 @@
-import NavItem from "@atoms/nav-item";
-import { NAVBAR_ITEMS } from "@constants/header.constant";
-import { useState } from "react";
+import NavItem from "@atoms/nav-item"
+import { NAVBAR_ITEMS } from "@constants/header.constant"
+import { useState } from "react"
 
-type Props = {};
-
-const NavBar = (props: Props) => {
-  const [showNav, setShowNav] = useState(false);
+const NavBar = (): JSX.Element => {
+  const [showNav, setShowNav] = useState(false)
 
   return (
     <nav className="md:flex justify-between items-center">
@@ -31,17 +29,17 @@ const NavBar = (props: Props) => {
         } container px-2 py-8 fixed top-20 left-0 right-0 bottom-0 flex flex-col items-center gap-8 bg-gray-700 transition-[left] md:static md:w-auto md:flex-row md:bg-transparent font-bold`}
       >
         {NAVBAR_ITEMS.map(({ id, value, href }) => {
-          return <NavItem key={id} value={value} href={href} />;
+          return <NavItem key={id} value={value} href={href} />
         })}
         {/* <hr className="h-7 w-[1px] bg-gray-400/70" /> */}
         {/* <span className="hidden md:flex p-2 bg-blue-500/50">ICON</span> */}
         {/* <span className="hidden md:flex p-2 bg-blue-500/50">ICON</span> */}
       </ul>
     </nav>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar
 
 /****
 md:space-x-7 md:items-center md:bg-transparent bg-opacity-90 w-10/12 md:text-gray-500 text-white md:space-y-0 space-y-5 p-2 transition-[left]

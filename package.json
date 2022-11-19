@@ -1,8 +1,25 @@
 {
   "name": "front-movies",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
+  "main": "index.js",
+  "keywords": [
+    "reactjs",
+    "tailwindcss",
+    "vitejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/juanfrancia12/frontmovies#readme",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanfrancia12/frontmovies.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juanfrancia12/frontmovies/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -43,13 +60,8 @@
     "typescript": "*",
     "vite": "^3.2.3"
   },
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "src/**/*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "src/**/*.{js,jsx,ts,tsx,css,scss,md}": "prettier --write --ignore-unknown"
   }
 }

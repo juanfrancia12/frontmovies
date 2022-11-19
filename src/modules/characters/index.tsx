@@ -1,11 +1,11 @@
-import List from "./components/List";
+import List from "./components/List"
 
-const CharactersView = () => {
+const CharactersView = (): JSX.Element => {
   return (
     <>
       <List />
     </>
-  );
-};
+  )
+}
 
-export default CharactersView;
+export default CharactersView

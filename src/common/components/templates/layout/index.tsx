@@ -1,18 +1,18 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Footer from "./components/Footer"
+import Header from "./components/Header"
 
-type LayoutProps = {
-  children: JSX.Element | JSX.Element[];
-};
+interface LayoutProps {
+  children: JSX.Element | JSX.Element[]
+}
 
-const Layout = (props: LayoutProps) => {
+const Layout = (props: LayoutProps): JSX.Element => {
   return (
     <div>
       <Header />
       {props.children}
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

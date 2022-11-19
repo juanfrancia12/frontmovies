@@ -1,7 +1,7 @@
-import HomeView from "@modules/home";
+import HomeView from "@modules/home"
 
-const HomePage = () => {
-  return <HomeView />;
-};
+const HomePage = (): JSX.Element => {
+  return <HomeView />
+}
 
-export default HomePage;
+export default HomePage

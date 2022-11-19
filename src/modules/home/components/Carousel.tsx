@@ -1,17 +1,19 @@
-import Carousel from "@components/templates/carousel";
-import { Characters } from "@interfaces/characters.interface";
-import { getLastCarouselCharacters } from "@services/characters.service";
-import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
-import { SwiperSlide } from "swiper/react";
+import Carousel from "@components/templates/carousel"
+import { Characters } from "@interfaces/characters.interface"
+import { getLastCarouselCharacters } from "@services/characters.service"
+import { useQuery } from "react-query"
+import { Link } from "react-router-dom"
+import { SwiperSlide } from "swiper/react"
 
-const CarouselHome = () => {
-  const { data, error, isLoading, isFetching } = useQuery(
+const CarouselHome = (): JSX.Element => {
+  const { data, error, isLoading } = useQuery(
     ["getLastCarouselCharacters"],
     getLastCarouselCharacters
-  );
+  )
 
-  if (isLoading) return <div>CARGANDO ...</div>;
+  if (isLoading) return <div>CARGANDO ...</div>
+
+  if (!isLoading && Boolean(error)) return <div>ERROR ...</div>
 
   return (
     <div className="flex flex-col gap-8 my-8">
@@ -34,11 +36,11 @@ const CarouselHome = () => {
                 </article>
               </Link>
             </SwiperSlide>
-          );
+          )
         })}
       </Carousel>
     </div>
-  );
-};
+  )
+}
 
-export default CarouselHome;
+export default CarouselHome

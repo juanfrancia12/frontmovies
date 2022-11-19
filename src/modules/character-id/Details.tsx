@@ -1,25 +1,24 @@
-import { getCharacterById } from "@services/characters.service";
-import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { getCharacterById } from "@services/characters.service"
+import { useQuery } from "react-query"
+import { useParams } from "react-router-dom"
 
-const Details = () => {
-  const { id } = useParams();
+const Details = (): JSX.Element => {
+  const { id } = useParams()
   // TODO: no vuelve a recargar los datos
-  const { data, error, isLoading, isFetching } = useQuery(
+  const { data, error, isLoading } = useQuery(
     ["getCharacterById"],
-    () => getCharacterById(Number(id)),
+    async () => await getCharacterById(Number(id)),
     {
       refetchOnMount: false,
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
     }
-  );
+  )
 
-  if (isLoading) return <div>CARGANDO ...</div>;
+  if (isLoading) return <div>CARGANDO ...</div>
+  if (!isLoading && Boolean(error)) return <div>ERROR ...</div>
 
-  console.log(data);
+  return <div className="mt-20">{JSON.stringify(data)}</div>
+}
 
-  return <div className="mt-20">Details</div>;
-};
-
-export default Details;
+export default Details

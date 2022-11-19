@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"
 
-type Props = {
-  href: string;
-  value: string;
-};
+interface Props {
+  href: string
+  value: string
+}
 
-const NavItem = ({ href, value }: Props) => {
+const NavItem = ({ href, value }: Props): JSX.Element => {
   return (
     <NavLink
       className={({ isActive }) =>
@@ -17,7 +17,7 @@ const NavItem = ({ href, value }: Props) => {
     >
       {value}
     </NavLink>
-  );
-};
+  )
+}
 
-export default NavItem;
+export default NavItem

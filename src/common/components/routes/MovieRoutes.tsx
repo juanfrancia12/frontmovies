@@ -1,35 +1,32 @@
-import { Suspense } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AppMovieLayout from "example/AppMovie";
-import HomePage from "@pages/home";
-import CharactersPage from "@pages/characters";
-import { useQuery, useQueryClient } from "react-query";
-import CharacterIdPage from "@pages/character-id";
+import CharacterIdPage from "@pages/character-id"
+import CharactersPage from "@pages/characters"
+import HomePage from "@pages/home"
+import AppMovieLayout from "example/AppMovie"
+import { ReactElement, Suspense } from "react"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
-const Error404 = () => {
-  return <div>ERROR 404</div>;
-};
+const Error404 = (): JSX.Element => {
+  return <div>ERROR 404</div>
+}
 
-const LoginPage = () => {
-  return <div>Login page</div>;
-};
+// const LoginPage = () => {
+//   return <div>Login page</div>
+// }
 
-const UnauthorizedPage = () => {
-  return <div>Unauthorized page</div>;
-};
+// const UnauthorizedPage = () => {
+//   return <div>Unauthorized page</div>
+// }
 
-const Historial = () => {
-  const queryClient = useQueryClient();
-
+const Historial = (): JSX.Element => {
   return (
     <div className="pt-20">
       <span>Historial del usuario</span>
       {/* <div>{queryClient.getQueryData(["getLastCarouselCharacters", getLastCarouselCharacters.name])}</div> */}
     </div>
-  );
-};
+  )
+}
 
-export function MovieRoutes() {
+export function MovieRoutes(): ReactElement {
   // const getToken = false
 
   return (
@@ -44,7 +41,6 @@ export function MovieRoutes() {
             }
           >
             <Routes>
-              // * RUTAS PUBLICAS
               <Route index element={<HomePage />} />
               <Route path="/characters/:id" element={<CharacterIdPage />} />
               <Route path="/characters" element={<CharactersPage />} />
@@ -57,5 +53,5 @@ export function MovieRoutes() {
         </AppMovieLayout>
       </Suspense>
     </Router>
-  );
+  )
 }

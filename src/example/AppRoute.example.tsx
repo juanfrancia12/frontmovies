@@ -4,9 +4,9 @@ import {
   Route,
   Outlet,
   NavLink,
-} from "react-router-dom";
+} from "react-router-dom"
 
-const AppExample = () => {
+const AppExample = (): JSX.Element => {
   return (
     <Router>
       <Routes>
@@ -29,10 +29,10 @@ const AppExample = () => {
         <Route path="layout" element={<LayoutPage />} />
       </Routes>
     </Router>
-  );
-};
+  )
+}
 
-const LayoutPage = () => {
+const LayoutPage = (): JSX.Element => {
   return (
     <>
       <aside className="h-screen w-1/5 inline-grid bg-blue-200 sticky top-0 overflow-auto">
@@ -43,14 +43,12 @@ const LayoutPage = () => {
         <main className="bg-red-300">MAIN</main>
       </div>
     </>
-  );
-};
+  )
+}
 
-const Layout = () => {
-  const style = ({ isActive }: any) => ({
-    fontWeight: isActive ? "bold" : "normal",
-    marginRight: "1rem",
-  });
+const Layout = (): JSX.Element => {
+  const activeClass: string = "font-bold mr-2"
+  const inActiveClass: string = "mr-2"
 
   return (
     <>
@@ -62,13 +60,22 @@ const Layout = () => {
           paddingBottom: "1rem",
         }}
       >
-        <NavLink to="/home" style={style}>
+        <NavLink
+          to="/home"
+          className={({ isActive }) => (isActive ? activeClass : inActiveClass)}
+        >
           Home
         </NavLink>
-        <NavLink to="/about" style={style}>
+        <NavLink
+          to="/about"
+          className={({ isActive }) => (isActive ? activeClass : inActiveClass)}
+        >
           About
         </NavLink>
-        <NavLink to="/layout" style={style}>
+        <NavLink
+          to="/layout"
+          className={({ isActive }) => (isActive ? activeClass : inActiveClass)}
+        >
           Layout
         </NavLink>
       </nav>
@@ -77,18 +84,13 @@ const Layout = () => {
         <Outlet />
       </main>
     </>
-  );
-};
+  )
+}
 
-const HomeIndex = () => {
-  return <div className="">HOMEEEE INDEXXXXXXXXXX</div>;
-};
+const Home = (): JSX.Element => {
+  const activeClass: string = "font-bold mr-2"
+  const inActiveClass: string = "mr-2"
 
-const Home = () => {
-  const style = ({ isActive }: any) => ({
-    fontWeight: isActive ? "bold" : "normal",
-    marginRight: "1rem",
-  });
   return (
     <>
       <h2>Home</h2>
@@ -98,10 +100,16 @@ const Home = () => {
           paddingBottom: "1rem",
         }}
       >
-        <NavLink to="view-dashboard-home" style={style}>
+        <NavLink
+          to="view-dashboard-home"
+          className={({ isActive }) => (isActive ? activeClass : inActiveClass)}
+        >
           Ver dashboard - Home
         </NavLink>
-        <NavLink to="list-users-home" style={style}>
+        <NavLink
+          to="list-users-home"
+          className={({ isActive }) => (isActive ? activeClass : inActiveClass)}
+        >
           Ver lista de usuarios - Home
         </NavLink>
       </nav>
@@ -109,14 +117,13 @@ const Home = () => {
         <Outlet />
       </main>
     </>
-  );
-};
+  )
+}
 
-const About = () => {
-  const style = ({ isActive }: any) => ({
-    fontWeight: isActive ? "bold" : "normal",
-    marginRight: "1rem",
-  });
+const About = (): JSX.Element => {
+  const activeClass: string = "font-bold mr-2"
+  const inActiveClass: string = "mr-2"
+
   return (
     <>
       <h2>Reportes</h2>
@@ -126,15 +133,21 @@ const About = () => {
           paddingBottom: "1rem",
         }}
       >
-        <NavLink to="list-professor-report" style={style}>
+        <NavLink
+          to="list-professor-report"
+          className={({ isActive }) => (isActive ? activeClass : inActiveClass)}
+        >
           Ver profesores - Reportes
         </NavLink>
-        <NavLink to="data-analisis-report" style={style}>
+        <NavLink
+          to="data-analisis-report"
+          className={({ isActive }) => (isActive ? activeClass : inActiveClass)}
+        >
           Ver analisis de datos - Reportes
         </NavLink>
       </nav>
     </>
-  );
-};
+  )
+}
 
-export default AppExample;
+export default AppExample

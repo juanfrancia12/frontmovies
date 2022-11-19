@@ -6,25 +6,27 @@ import {
   //   LAST_LIMIT,
   LAST_LIMIT_CAROUSEL,
   IMAGE_NOT_AVAILABLE,
-} from "@constants/global.constant";
-import { Characters, CharactersItem } from "@interfaces/characters.interface";
-import { Character, CharacterItem } from "@interfaces/charactersId.interface";
-import axios from "axios";
+} from "@constants/global.constant"
+import { Characters, CharactersItem } from "@interfaces/characters.interface"
+import { Character, CharacterItem } from "@interfaces/charactersId.interface"
+import axios from "axios"
 
 // TODO: retorna todos los elementos
 // * se valida que todas tengan imágenes
-export const getCharacters = async () => {
+export const getCharacters = async (): Promise<unknown> => {
   const { data } = await axios.get(
-    `${URL_API_PUBLIC}/characters?${ORDER_BY}ts=1&apikey=${KEY_PLUBLIC}&hash=${HASH}`
-  );
+    `${URL_API_PUBLIC as string}/characters?${ORDER_BY as string}ts=1&apikey=${
+      KEY_PLUBLIC as string
+    }&hash=${HASH as string}`
+  )
 
   const fillData = await data.data.results.filter(
     (character: CharactersItem) =>
       character.thumbnail.path.split("/").pop() !== IMAGE_NOT_AVAILABLE
-  );
+  )
 
-  return fillData;
-};
+  return fillData
+}
 
 // TODO: retorna el ultimo elemento
 // export const getLastCharacters = async () => {
@@ -44,8 +46,10 @@ export const getCharacters = async () => {
 // * se valida que todas tengan imágenes
 export const getLastCarouselCharacters = async (): Promise<Characters[]> => {
   const { data } = await axios.get(
-    `${URL_API_PUBLIC}/characters?${ORDER_BY}${LAST_LIMIT_CAROUSEL}ts=1&apikey=${KEY_PLUBLIC}&hash=${HASH}`
-  );
+    `${URL_API_PUBLIC as string}/characters?${ORDER_BY as string}${
+      LAST_LIMIT_CAROUSEL as string
+    }ts=1&apikey=${KEY_PLUBLIC as string}&hash=${HASH as string}`
+  )
 
   const fillData = await data.data.results
     .filter(
@@ -57,19 +61,21 @@ export const getLastCarouselCharacters = async (): Promise<Characters[]> => {
         id: item.id,
         name: item.name,
         thumbnail: `${item.thumbnail.path}.${item.thumbnail.extension}`,
-      };
+      }
 
-      return character;
-    });
+      return character
+    })
 
-  return fillData;
-};
+  return fillData
+}
 
 // TODO: retorna el elemento según su id
 export const getCharacterById = async (id: number): Promise<Character[]> => {
   const { data } = await axios.get(
-    `${URL_API_PUBLIC}/characters/${id}?ts=1&apikey=${KEY_PLUBLIC}&hash=${HASH}`
-  );
+    `${URL_API_PUBLIC as string}/characters/${id}?ts=1&apikey=${
+      KEY_PLUBLIC as string
+    }&hash=${HASH as string}`
+  )
 
   const fillData = await data.data.results.map((item: CharacterItem) => {
     const character: Character = {
@@ -77,10 +83,10 @@ export const getCharacterById = async (id: number): Promise<Character[]> => {
       name: item.name,
       thumbnail: `${item.thumbnail.path}.${item.thumbnail.extension}`,
       description: item.description,
-    };
+    }
 
-    return character;
-  });
+    return character
+  })
 
-  return fillData;
-};
+  return fillData
+}
